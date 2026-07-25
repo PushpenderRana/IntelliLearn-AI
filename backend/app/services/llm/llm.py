@@ -1,18 +1,18 @@
-from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 
 from app.config.settings import settings
 
 
 class LLMService:
     def __init__(self):
-        self.primary_llm = ChatOllama(
+        self.primary_llm = ChatGroq(
             model=settings.PRIMARY_MODEL,
-            api_key=settings.OLLAMA_API_KEY
+            api_key=settings.GROQ_API_KEY
         )
 
-        self.fallback_llm = ChatOllama(
+        self.fallback_llm = ChatGroq(
             model=settings.FALLBACK_MODEL,
-            api_key=settings.OLLAMA_API_KEY
+            api_key=settings.GROQ_API_KEY
         )
 
     def invoke(self, prompt: str):

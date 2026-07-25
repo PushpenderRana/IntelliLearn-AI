@@ -14,6 +14,7 @@ class Settings:
     SESSION_SECRET: str = os.getenv("SESSION_SECRET", "default_secret_key_change_me")
     OLLAMA_API_KEY: str = os.getenv("OLLAMA_API_KEY", "")
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+    OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "https://ollama.com")
 
 
 settings = Settings()
