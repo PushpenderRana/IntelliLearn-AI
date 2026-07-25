@@ -1,8 +1,9 @@
-from langchain_ollama import OllamaEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
 
 from app.config.settings import settings
 
-
-embeddings = OllamaEmbeddings(
-    model=settings.EMBEDDING_MODEL,
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/gemini-embedding-001",
+    google_api_key=settings.GOOGLE_API_KEY,
 )
