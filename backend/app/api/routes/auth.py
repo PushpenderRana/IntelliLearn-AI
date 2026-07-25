@@ -17,7 +17,7 @@ router = APIRouter(
 
 FRONTEND_URL = os.getenv(
     "INTELLILEARN_FRONTEND_URL",
-    "http://localhost:8501"
+    "https://intellilearn-ai-judvr8fdoxyygscdyxfzng.streamlit.app/"
 )
 
 # Temporary in-memory storage
