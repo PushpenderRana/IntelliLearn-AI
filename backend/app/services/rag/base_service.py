@@ -6,8 +6,17 @@ class BaseRAGService:
     def __init__(self, rag_pipeline: RAGPipeline):
         self.rag = rag_pipeline
 
-    def generate(self, query: str, prompt_template: str):
-        documents = self.rag.retrieve(query)
+    def generate(
+        self,
+        document_id: str,
+        query: str,
+        prompt_template: str,
+        **kwargs
+    ):
+        documents = self.rag.retrieve(
+            document_id=document_id,
+            query=query
+        )
 
         context = "\n\n".join(
             document.page_content
@@ -16,7 +25,8 @@ class BaseRAGService:
 
         prompt = prompt_template.format(
             context=context,
-            query=query
+            query=query,
+            **kwargs
         )
 
         response = llm.invoke(prompt)

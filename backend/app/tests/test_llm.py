@@ -156,7 +156,7 @@
 # if __name__ == "__main__":
 #     main()
 
-from app.services.summary.summary import SummaryService
+from app.services.ai.summary import SummaryService
 
 
 def main():

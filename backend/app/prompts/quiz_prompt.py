@@ -1,8 +1,14 @@
-from app.services.rag.base_service import BaseRAGService
-
-
 QUIZ_PROMPT = """
-Using only the context below, generate 10 multiple-choice questions.
+You are an expert teacher.
+
+Using ONLY the context below, generate a multiple-choice quiz.
+
+Instructions:
+- Difficulty: {difficulty}
+- Number of Questions: {number_of_questions}
+- Each question must have exactly four options (A, B, C, D).
+- Provide the correct answer after each question.
+- Do not use information outside the provided context.
 
 Context:
 {context}
@@ -12,8 +18,3 @@ Topic:
 
 Quiz:
 """
-
-
-class QuizService(BaseRAGService):
-    def generate_quiz(self, topic: str):
-        return self.generate(topic, QUIZ_PROMPT)

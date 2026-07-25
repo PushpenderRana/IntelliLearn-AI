@@ -1,0 +1,18 @@
+from authlib.integrations.starlette_client import OAuth
+
+from app.config.settings import settings
+
+
+oauth = OAuth()
+
+oauth.register(
+    name="google",
+    client_id=settings.GOOGLE_CLIENT_ID,
+    client_secret=settings.GOOGLE_CLIENT_SECRET,
+    server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
+    client_kwargs={
+        "scope": "openid email profile"
+    }
+)
+print("CLIENT_ID:", settings.GOOGLE_CLIENT_ID)
+print("CLIENT_SECRET:", settings.GOOGLE_CLIENT_SECRET)
