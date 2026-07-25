@@ -7,10 +7,12 @@ class LLMService:
     def __init__(self):
         self.primary_llm = ChatOllama(
             model=settings.PRIMARY_MODEL,
+            api_key=settings.OLLAMA_API_KEY
         )
 
         self.fallback_llm = ChatOllama(
             model=settings.FALLBACK_MODEL,
+            api_key=settings.OLLAMA_API_KEY
         )
 
     def invoke(self, prompt: str):

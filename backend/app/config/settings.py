@@ -12,6 +12,7 @@ class Settings:
     GOOGLE_CLIENT_ID: str = os.getenv("GOOGLE_CLIENT_ID", "")
     GOOGLE_CLIENT_SECRET: str = os.getenv("GOOGLE_CLIENT_SECRET", "")
     SESSION_SECRET: str = os.getenv("SESSION_SECRET", "default_secret_key_change_me")
+    OLLAMA_API_KEY: str = os.getenv("OLLAMA_API_KEY", "")
 
 
 settings = Settings()
