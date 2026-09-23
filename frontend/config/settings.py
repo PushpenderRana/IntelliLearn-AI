@@ -3,6 +3,8 @@ Central config. Change API_BASE_URL to point at your running FastAPI backend.
 """
 import os
 
+# API_BASE_URL = os.getenv("INTELLILEARN_API_URL", "http://127.0.0.1:8000")
+
 API_BASE_URL = os.getenv("INTELLILEARN_API_URL", "https://intellilearn-ai-8r6m.onrender.com")
 
 APP_NAME = "IntelliLearn AI"
