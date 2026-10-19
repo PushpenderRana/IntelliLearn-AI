@@ -12,7 +12,7 @@ router = APIRouter(
 
 
 @router.post("/", response_model=ChatResponse)
-async def chat(request: ChatRequest):
+def chat(request: ChatRequest):
     if request.document_id not in rag_pipeline.retrievers:
         raise HTTPException(
         status_code=400,

@@ -55,7 +55,9 @@ async def auth_callback(request: Request):
             "name": user.get("name"),
             "picture": user.get("picture"),
         }
+    
     )
+    # print("JWT Token:", jwt_token)  # Debugging line to print the JWT token
 
     # Generate temporary authorization code
     temp_code = secrets.token_urlsafe(32)

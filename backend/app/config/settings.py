@@ -8,7 +8,7 @@ load_dotenv(dotenv_path=env_path)
 
 class Settings:
     # LLM
-    PRIMARY_MODEL: str = os.getenv("PRIMARY_MODEL", "openai/gpt-oss-120b")
+    PRIMARY_MODEL: str = os.getenv("PRIMARY_MODEL", "qwen/qwen3.8-27b")
     FALLBACK_MODEL: str = os.getenv("FALLBACK_MODEL", "openai/gpt-oss-20b")
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
 

@@ -12,7 +12,7 @@ router = APIRouter(
 
 
 @router.post("/", response_model=NotesResponse)
-async def notes(request: NotesRequest):
+def notes(request: NotesRequest):
     if request.document_id not in rag_pipeline.retrievers:
         raise HTTPException(
         status_code=400,

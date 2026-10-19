@@ -25,15 +25,21 @@ class CacheService:
             self._store[quiz_id] = {"data": data, "expires_at": time.time() + self.ttl}
         return quiz_id
 
-    def get(self, quiz_id: str) -> Optional[Any]:
+    def set(self, key: str, data: Any, ttl: Optional[int] = None) -> None:
+        expiry = time.time() + (ttl if ttl is not None else self.ttl)
         with self._lock:
             self._purge_expired()
-            entry = self._store.get(quiz_id)
+            self._store[key] = {"data": data, "expires_at": expiry}
+
+    def get(self, key: str) -> Optional[Any]:
+        with self._lock:
+            self._purge_expired()
+            entry = self._store.get(key)
             return entry["data"] if entry else None
 
-    def delete(self, quiz_id: str) -> None:
+    def delete(self, key: str) -> None:
         with self._lock:
-            self._store.pop(quiz_id, None)
+            self._store.pop(key, None)
 
 
 # Singleton used across app. TTL = 30 min per spec.

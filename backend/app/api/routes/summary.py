@@ -12,7 +12,7 @@ router = APIRouter(
 
 
 @router.post("/", response_model=SummaryResponse)
-async def summary(request: SummaryRequest):
+def summary(request: SummaryRequest):
     if request.document_id not in rag_pipeline.retrievers:
         raise HTTPException(
         status_code=400,
